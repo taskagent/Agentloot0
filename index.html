@@ -2,50 +2,51 @@
 <html>
 <head>
   <title>WhatsApp Redirect</title>
-  <!-- Font Awesome for WhatsApp Icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script>
     function redirectWhatsApp() {
       // Numbers ka array
       var numbers = [
-        "919876543210",
-        "919812345678",
-        "917012345678"
+        "919919008949",
+        "918448479924",
+        "917974650346",
+        "917999003219",
+        "919779219107",
+        "917000708585",
+        "919250705078",
+        "918926440450",
+        "918088880653",
+        "917717731393",
+        "919330316508",
+        "917617513018",
+        "919366109321",
+        "919047054065",
+        "917739083216",
+        "919125852609",
+        "918788156951",
+        "916396990390",
+        "917478177492",
+        "918605175169",
+        "919664132572",
+        "918318776146",
+        "917219692011",
+        "919002934651",
+        "918707835206",
+        "917000708585",
+        "917583997360",
+        "919907105128",
+        "917081280158",
+        "918511716662"
       ];
 
       // Random number choose karo
       var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
 
-      // Message text
-      var message = "Hello, I want to connect with you!";
-
-      // Redirect to WhatsApp with message
-      window.location.href = "https://wa.me/" + randomNum + "?text=" + encodeURIComponent(message);
+      // Redirect to WhatsApp
+      window.location.href = "https://wa.me/" + randomNum;
     }
   </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-    }
-    h2 {
-      text-align: center;
-      margin-top: 100px;
-    }
-    /* Floating WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
-      color: white;
-      font-size: 26px;
-      padding: 18px;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      cursor: pointer;
-      z-index: 999;
-      transition: background 0.3s ease, transform
+</head>
+<body onload="redirectWhatsApp()">
+  <h2>Redirecting to WhatsApp...</h2>
+</body>
+</html>
