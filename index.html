@@ -1,259 +1,51 @@
-<!DOCTYPE html><html lang="hi">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Offer Landing Page</title>
-  <meta name="description" content="Simple, fast, mobile-first landing page with UTM tracking and sticky CTA." />
-  <meta property="og:title" content="Offer Landing Page" />
-  <meta property="og:description" content="Mobile-first landing with timer, FAQs, and UTM tracking." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Your+Banner" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>WhatsApp Redirect</title>
+  <!-- Font Awesome for WhatsApp Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    function redirectWhatsApp() {
+      // Numbers ka array
+      var numbers = [
+        "919876543210",
+        "919812345678",
+        "917012345678"
+      ];
+
+      // Random number choose karo
+      var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
+
+      // Message text
+      var message = "Hello, I want to connect with you!";
+
+      // Redirect to WhatsApp with message
+      window.location.href = "https://wa.me/" + randomNum + "?text=" + encodeURIComponent(message);
+    }
+  </script>
   <style>
-    :root{
-      --bg: #0b1220; /* dark navy */
-      --card: #111827; /* slate-900 */
-      --muted: #9ca3af; /* gray-400 */
-      --text: #e5e7eb; /* gray-200 */
-      --brand: #0ea5e9; /* sky-500 */
-      --accent: #f97316; /* orange-500 */
-      --ok: #22c55e; /* green-500 */
-      --danger: #ef4444; /* red-500 */
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 70% -10%, rgba(14,165,233,.15), transparent 60%),
-                  radial-gradient(800px 400px at 20% 10%, rgba(249,115,22,.12), transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      line-height:1.6;
+    h2 {
+      text-align: center;
+      margin-top: 100px;
     }
-    .container{max-width:980px;margin:0 auto;padding:16px}
-    .hero{display:grid;gap:18px;grid-template-columns:1.1fr;align-items:center;padding:20px 0 10px}
-    .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(14,165,233,.12);color:#bfe9ff;border:1px solid rgba(14,165,233,.3);padding:6px 10px;border-radius:999px;font-size:12px}
-    h1{font-size:clamp(28px,4.5vw,44px);line-height:1.1;margin:8px 0 4px}
-    .sub{color:#cbd5e1;font-size:clamp(14px,2.5vw,18px)}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
-    .btn{appearance:none;border:none;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;transition:.2s transform, .2s opacity;display:inline-flex;gap:10px;align-items:center;text-decoration:none}
-    .btn:active{transform:translateY(1px)}
-    .btn-primary{background:linear-gradient(90deg, var(--brand), #38bdf8);color:#04121a}
-    .btn-secondary{background:rgba(255,255,255,.06);color:#e5e7eb;border:1px solid rgba(255,255,255,.12)}
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
-    .feature{padding:14px}
-    .feature h3{margin:0 0 6px;font-size:16px}
-    .timer{display:flex;gap:10px}
-    .timer .box{background:#0a1824;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px 12px;text-align:center}
-    .timer .num{font-size:22px;font-weight:800}
-    .section{margin:22px 0;padding:14px}
-    .grid-2{display:grid;grid-template-columns:1fr;gap:14px}
-    @media (min-width:880px){.grid-2{grid-template-columns:1.1fr .9fr}.hero{grid-template-columns:1.2fr .8fr}}
-    .list{margin:0;padding-left:18px}
-    .list li{margin:6px 0}
-    .sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;display:flex;gap:10px;justify-content:center;z-index:50}
-    @media (min-width:680px){.sticky-cta{left:auto;right:20px;bottom:20px}}
-    .faq details{background:#0a1824;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:10px}
-    .faq summary{cursor:pointer;font-weight:600}
-    .muted{color:var(--muted);font-size:14px}
-    .footer{opacity:.8;font-size:13px}
-    .hide{display:none !important}
-    .floating-badge{position:fixed;top:16px;right:16px;background:#052235;border:1px solid rgba(56,189,248,.3);color:#bfe9ff;padding:6px 10px;border-radius:999px;font-size:12px;z-index:60}
-    .brand{font-weight:800;letter-spacing:0.3px}
-    .highlight{color:#ffd7b3}
-    .accent{color:var(--accent)}
-    .input{width:100%;background:#0a1824;border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--text);padding:12px}
-    .note{font-size:12px;color:#a3a3a3}
-  </style>
-</head>
-<body>
-  <div class="floating-badge">🔗 UTM Tracking Active</div>
-  <header class="container">
-    <div class="hero">
-      <div>
-        <span class="badge">New • Limited Time Access</span>
-        <h1><span class="brand">Your Brand</span> — Simple Offer Page</h1>
-        <p class="sub">Mobile-first landing page with <span class="highlight">countdown</span>, <span class="highlight">UTM tracking</span>, sticky CTA, and clean design. SEO + OG tags included.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary track-link" id="ctaPrimary" href="#join">🚀 Join Now</a>
-          <a class="btn btn-secondary" href="#features">See Features</a>
-        </div>
-        <div class="card" style="padding:14px">
-          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-            <strong>⏳ Offer ends in</strong>
-            <div class="timer" id="timer">
-              <div class="box"><div class="num" id="d">00</div><div class="muted">Days</div></div>
-              <div class="box"><div class="num" id="h">00</div><div class="muted">Hrs</div></div>
-              <div class="box"><div class="num" id="m">00</div><div class="muted">Min</div></div>
-              <div class="box"><div class="num" id="s">00</div><div class="muted">Sec</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="card" style="overflow:hidden">
-          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Hero" style="width:100%;height:auto;display:block"/>
-        </div>
-      </div>
-    </div>
-  </header>  <main class="container">
-    <section id="features" class="section card">
-      <h2 style="margin:0 0 6px">Why choose us?</h2>
-      <p class="muted" style="margin:0 0 10px">Fast, lightweight, and conversion-focused. No frameworks required.</p>
-      <div class="features">
-        <div class="feature">
-          <h3>⚡ Lightning fast</h3>
-          <p>Pure HTML/CSS/JS — loads quick even on 3G. Lighthouse-friendly.</p>
-        </div>
-        <div class="feature">
-          <h3>📈 UTM auto-attach</h3>
-          <p>Reads <code>utm_*</code>, <code>fbclid</code> etc. and adds them to all outbound links with <code>.track-link</code>.</p>
-        </div>
-        <div class="feature">
-          <h3>🔒 Privacy-aware</h3>
-          <p>No trackers by default. Add your pixels later if you want.</p>
-        </div>
-        <div class="feature">
-          <h3>🧩 Re-usable sections</h3>
-          <p>Hero, features, testimonials, FAQs, and a lead form — ready to customize.</p>
-        </div>
-      </div>
-    </section><section id="join" class="section grid-2">
-  <div class="card" style="padding:16px">
-    <h2 style="margin:0 0 8px">Get instant access</h2>
-    <p class="muted">Enter your details. We’ll contact you within 24 hours.</p>
-    <form id="leadForm">
-      <div style="display:grid;gap:10px;margin:10px 0">
-        <input class="input" name="name" placeholder="Your Name" required />
-        <input class="input" name="phone" placeholder="Phone (WhatsApp)" required />
-        <input class="input" name="email" type="email" placeholder="Email (optional)" />
-      </div>
-      <button class="btn btn-primary" type="submit">Submit</button>
-      <p class="note">By continuing, you agree to our Terms & Privacy.</p>
-    </form>
-  </div>
-  <div class="card" style="padding:16px">
-    <h3 style="margin:0 0 6px">What you get</h3>
-    <ul class="list">
-      <li>Custom landing page with your branding.</li>
-      <li>Uses your UTM/Instagram/Meta campaign params.</li>
-      <li>Export-ready: Host on GitHub Pages, Netlify, Vercel.</li>
-      <li>Responsive, works on all modern phones.</li>
-    </ul>
-    <div style="margin-top:10px">
-      <a class="btn btn-secondary track-link" href="https://wa.me/" target="_blank" rel="noopener">Chat on WhatsApp</a>
-      <a class="btn btn-secondary track-link" href="tel:+911234567890">Call now</a>
-    </div>
-  </div>
-</section>
-
-<section class="section card">
-  <h2 style="margin:0 0 8px">FAQs</h2>
-  <div class="faq" style="display:grid;gap:10px">
-    <details>
-      <summary>UTM parameters kya hote hai?</summary>
-      <p>UTM parameters (utm_source, utm_medium, etc.) aapke traffic ka source track karne ke liye use hote hain. Ye page unhe auto-read karta hai aur aapke CTA links me attach kar deta hai.</p>
-    </details>
-    <details>
-      <summary>Kya ye page Instagram/FB ads ke sath chalega?</summary>
-      <p>Haan, agar URL me <code>utm_*</code> ya <code>fbclid</code> aata hai to ye preserve rehga aur WhatsApp/Signup links tak forward ho jayega.</p>
-    </details>
-    <details>
-      <summary>Deploy kaise kare?</summary>
-      <p>Is single HTML file ko GitHub Pages, Netlify, ya Vercel par bina backend ke host kar sakte hain.</p>
-    </details>
-  </div>
-</section>
-
-<section class="section footer">
-  <div class="muted">© <span id="year"></span> Your Brand. All rights reserved.</div>
-</section>
-
-  </main>  <div class="sticky-cta">
-    <a class="btn btn-primary track-link" href="#join">Get Access</a>
-    <a class="btn btn-secondary track-link" href="https://example.com/demo" target="_blank" rel="noopener">Live Demo</a>
-  </div>  <script>
-    // ====== Utilities ======
-    const qs = new URLSearchParams(location.search);
-    const TRACK_KEYS = [
-      'utm_source','utm_medium','utm_campaign','utm_id','utm_term','utm_content','fbclid','gclid','msclkid'
-    ];
-
-    function pickTrackingParams(qs){
-      const out = new URLSearchParams();
-      for(const k of TRACK_KEYS){
-        if(qs.has(k)) out.set(k, qs.get(k));
-      }
-      return out;
-    }
-
-    function attachParamsToLinks(){
-      const track = pickTrackingParams(qs);
-      if(!track.toString()) return;
-      document.querySelectorAll('a.track-link').forEach(a => {
-        try{
-          const url = new URL(a.getAttribute('href'), location.origin);
-          // keep existing params too
-          const combined = new URLSearchParams(url.search);
-          for(const [k,v] of track.entries()) combined.set(k,v);
-          url.search = combined.toString();
-          a.setAttribute('href', url.toString());
-        }catch(err){
-          // ignore invalid relative hashes like #join
-        }
-      });
-      document.querySelector('.floating-badge')?.classList.remove('hide');
-    }
-
-    // ====== Countdown (set your deadline here) ======
-    const DEADLINE = (() => {
-      // Default: 48 hours from first visit, stored in localStorage
-      const KEY = 'lp_deadline';
-      const existing = localStorage.getItem(KEY);
-      if(existing) return new Date(existing);
-      const d = new Date(Date.now() + 48*60*60*1000);
-      localStorage.setItem(KEY, d.toISOString());
-      return d;
-    })();
-
-    function updateTimer(){
-      const now = new Date();
-      let diff = Math.max(0, DEADLINE - now);
-      const d = Math.floor(diff / (24*60*60*1000));
-      diff -= d*24*60*60*1000;
-      const h = Math.floor(diff / (60*60*1000));
-      diff -= h*60*60*1000;
-      const m = Math.floor(diff / (60*1000));
-      diff -= m*60*1000;
-      const s = Math.floor(diff / 1000);
-      document.getElementById('d').textContent = String(d).padStart(2,'0');
-      document.getElementById('h').textContent = String(h).padStart(2,'0');
-      document.getElementById('m').textContent = String(m).padStart(2,'0');
-      document.getElementById('s').textContent = String(s).padStart(2,'0');
-    }
-
-    // ====== Lead Form (demo only) ======
-    document.getElementById('leadForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(e.target).entries());
-      const meta = Object.fromEntries(pickTrackingParams(qs).entries());
-      const payload = { ...data, ...meta, page: location.href, ts: new Date().toISOString() };
-      // In production, POST to your backend or Formspree/Google Apps Script
-      console.log('Lead captured:', payload);
-      e.target.reset();
-      alert('Thanks! We\'ll reach out shortly.');
-    });
-
-    // ====== Init ======
-    attachParamsToLinks();
-    updateTimer();
-    setInterval(updateTimer, 1000);
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script></body>
-</html>
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      font-size: 26px;
+      padding: 18px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+      z-index: 999;
+      transition: background 0.3s ease, transform
