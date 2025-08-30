@@ -1,29 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect</title>
-    <script>
-        // List of random links
-        const randomLinks = [
-            "https://asgels.xyz/Blbxgj", // Replace with your first link
-            "https://t.me/+TwBmLC3PgORmZmU1", // Replace with your second link
-            "https://asgels.xyz/Blbxgj"  // Replace with your third link
-        ];
+  <meta charset="UTF-8">
+  <title>WhatsApp Redirect</title>
+  <script>
+    function redirectWhatsApp() {
+      // आपकी नंबर लिस्ट
+      var numbers = [
+        "919832661216",
+        "919366474611",
+        "919306009146",
+        "919305472920",
+        "917505855538",
+        "919699915025",
+        "919506972985",
+        "916387921444",
+        "919478992546",
+        "919699915025",
+        "918763071704",
+        "919695430759",
+        "919345394580",
+        "918894344768",
+        "919922450254",
+        "919354731590",
+        "918798175548",
+        "917075846847",
+        "919277093618"
+      ];
 
-        // Function to select a random link and redirect
-        function randomRedirect() {
-            const randomIndex = Math.floor(Math.random() * randomLinks.length); // Randomly select an index
-            const selectedLink = randomLinks[randomIndex]; // Get the link based on the random index
-            window.location.href = selectedLink; // Redirect to the selected link
-        }
+      // Random number choose karo
+      var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
 
-        // Call the randomRedirect function on page load
-        window.onload = randomRedirect;
-    </script>
+      // Redirect to WhatsApp
+      window.location.href = "https://wa.me/" + randomNum;
+    }
+  </script>
 </head>
-<body>
-    <!-- Body is empty; it will redirect automatically on page load -->
+<body onload="redirectWhatsApp()">
+  <h2>Redirecting to WhatsApp...</h2>
 </body>
 </html>
