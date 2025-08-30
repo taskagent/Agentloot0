@@ -3,52 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Loot Giveaway</title>
+  <title>Agent Loot Rewards</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #00c6ff, #ff7e5f);
-      text-align: center;
-      color: white;
-      padding: 40px;
-    }
-    .card {
-      background: rgba(0,0,0,0.5);
-      border-radius: 15px;
+      font-family: sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 20px;
+    }
+    .container {
       max-width: 400px;
-      margin: auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    h1 {
-      font-size: 28px;
+    h2 { text-align: center; color: #333; }
+    input, select, button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
     }
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #ff5722;
-      color: white;
-      font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 15px;
-    }
-    .btn:hover {
-      background: #e64a19;
-    }
+    button { background: #28a745; color: white; cursor: pointer; }
+    button[disabled] { background: #aaa; cursor: not-allowed; }
+    .hidden { display: none; }
+    .info { margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 6px; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🎉 ₹500 Giveaway!</h1>
-    <p>Bas 3 steps follow karo aur jeeto ₹500 UPI/Paytm par!</p>
-    <ol style="text-align:left;">
-      <li>Follow @AgentLootOfficial</li>
-      <li>Like aur Comment karo <b>“MEIN LOTOON”</b></li>
-      <li>3 doston ko Tag karo</li>
-    </ol>
-    <p>Winner announce: <b>[Date]</b></p>
-    <a class="btn" href="https://wa.me/9199XXXXXXX" target="_blank">Participate Now</a>
+  <div class="container">
+    <h2>Participate & Win ₹500</h2>
+    <input type="text" id="mobile" placeholder="Enter your mobile number" maxlength="10" />
+    <select id="plan">
+      <option value="">Select Reward Option</option>
+      <option value="small">₹50 UPI Gift</option>
+      <option value="medium">₹100 UPI Gift</option>
+      <option value="big">₹500 UPI Gift</option>
+    </select>
+    <button id="proceedBtn">Proceed</button>
+
+    <div id="joinStep" class="hidden info">
+      Join our Telegram & Instagram to activate reward
+      <button id="confirmBtn" disabled>Confirm Participation</button>
+    </div>
+
+    <div id="processing" class="hidden info">
+      Processing your reward request… (We will verify within 24 hrs)
+    </div>
   </div>
+
+  <script>
+    const mobileInput = document.getElementById('mobile');
+    const planSelect = document.getElementById('plan');
+    const proceedBtn = document.getElementById('proceedBtn');
+    const joinStep = document.getElementById('joinStep');
+    const confirmBtn = document.getElementById('confirmBtn');
+    const processingDiv = document.getElementById('processing');
+
+    proceedBtn.onclick = () => {
+      if (mobileInput.value.length === 10 && planSelect.value) {
+        joinStep.classList.remove('hidden');
+        confirmBtn.disabled = false;
+      } else {
+        alert('Please enter valid mobile number & select a plan');
+      }
+    };
+
+    confirmBtn.onclick = () => {
+      joinStep.classList.add('hidden');
+      processingDiv.classList.remove('hidden');
+      // Here you can send data to your backend or collect manually
+      console.log('User:', mobileInput.value, planSelect.value);
+    };
+  </script>
 </body>
-      </html>
+  </html>
