@@ -1,54 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>WhatsApp Redirect</title>
-  <script>
-    function redirectWhatsApp() {
-      // Aapke numbers ka array
-      var numbers = [
-        "916295612198",
-        "918105894626",
-        "919511644029",
-        "918899119488",
-        "917206167457",
-        "918308624512",
-        "919368241692",
-        "919011561021",
-        "919024652267",
-        "917036160766",
-        "917015611679",
-        "919501857767",
-        "918917235223",
-        "919022831486",
-        "919012734801",
-        "919727867280",
-        "918619357325",
-        "918011083885",
-        "918960943955",
-        "918619606755",
-        "918595775860",
-        "918658224872",
-        "918618510848",
-        "918123078556",
-        "918870522173",
-        "919137355682",
-        "918849417394",
-        "918458044293",
-        "919067889839",
-        "919135899437",
-        "918757128579",
-        "918391086350"
-      ];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+    <script>
+        // List of random links
+        const randomLinks = [
+            "https://t.me/+AeVe2BoTijFjOTQ1", // Replace with your first link
+            "https://t.me/+AeVe2BoTijFjOTQ1", // Replace with your second link
+            "https://t.me/+AeVe2BoTijFjOTQ1"  // Replace with your third link
+        ];
 
-      // Random number choose karo
-      var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
+        // Function to select a random link and redirect
+        function randomRedirect() {
+            const randomIndex = Math.floor(Math.random() * randomLinks.length); // Randomly select an index
+            const selectedLink = randomLinks[randomIndex]; // Get the link based on the random index
+            window.location.href = selectedLink; // Redirect to the selected link
+        }
 
-      // Redirect to WhatsApp
-      window.location.href = "https://wa.me/" + randomNum;
-    }
-  </script>
+        // Call the randomRedirect function on page load
+        window.onload = randomRedirect;
+    </script>
 </head>
-<body onload="redirectWhatsApp()">
-  <h2>Redirecting to WhatsApp...</h2>
+<body>
+    <!-- Body is empty; it will redirect automatically on page load -->
 </body>
 </html>
