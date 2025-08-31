@@ -1,85 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agent Loot Rewards</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 400px;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    h2 { text-align: center; color: #333; }
-    input, select, button {
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button { background: #28a745; color: white; cursor: pointer; }
-    button[disabled] { background: #aaa; cursor: not-allowed; }
-    .hidden { display: none; }
-    .info { margin: 20px 0; padding: 15px; background: #e9ecef; border-radius: 6px; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h2>Participate & Win ₹500</h2>
-    <input type="text" id="mobile" placeholder="Enter your mobile number" maxlength="10" />
-    <select id="plan">
-      <option value="">Select Reward Option</option>
-      <option value="small">₹50 UPI Gift</option>
-      <option value="medium">₹100 UPI Gift</option>
-      <option value="big">₹500 UPI Gift</option>
-    </select>
-    <button id="proceedBtn">Proceed</button>
-
-    <div id="joinStep" class="hidden info">
-      Join our Telegram & Instagram to activate reward
-      <button id="confirmBtn" disabled>Confirm Participation</button>
-    </div>
-
-    <div id="processing" class="hidden info">
-      Processing your reward request… (We will verify within 24 hrs)
-    </div>
-  </div>
-
+  <title>WhatsApp Redirect</title>
   <script>
-    const mobileInput = document.getElementById('mobile');
-    const planSelect = document.getElementById('plan');
-    const proceedBtn = document.getElementById('proceedBtn');
-    const joinStep = document.getElementById('joinStep');
-    const confirmBtn = document.getElementById('confirmBtn');
-    const processingDiv = document.getElementById('processing');
+    function redirectWhatsApp() {
+      // Aapke numbers ka array
+      var numbers = [
+        "916295612198",
+        "918105894626",
+        "919511644029",
+        "918899119488",
+        "917206167457",
+        "918308624512",
+        "919368241692",
+        "919011561021",
+        "919024652267",
+        "917036160766",
+        "917015611679",
+        "919501857767",
+        "918917235223",
+        "919022831486",
+        "919012734801",
+        "919727867280",
+        "918619357325",
+        "918011083885",
+        "918960943955",
+        "918619606755",
+        "918595775860",
+        "918658224872",
+        "918618510848",
+        "918123078556",
+        "918870522173",
+        "919137355682",
+        "918849417394",
+        "918458044293",
+        "919067889839",
+        "919135899437",
+        "918757128579",
+        "918391086350"
+      ];
 
-    proceedBtn.onclick = () => {
-      if (mobileInput.value.length === 10 && planSelect.value) {
-        joinStep.classList.remove('hidden');
-        confirmBtn.disabled = false;
-      } else {
-        alert('Please enter valid mobile number & select a plan');
-      }
-    };
+      // Random number choose karo
+      var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
 
-    confirmBtn.onclick = () => {
-      joinStep.classList.add('hidden');
-      processingDiv.classList.remove('hidden');
-      // Here you can send data to your backend or collect manually
-      console.log('User:', mobileInput.value, planSelect.value);
-    };
+      // Redirect to WhatsApp
+      window.location.href = "https://wa.me/" + randomNum;
+    }
   </script>
+</head>
+<body onload="redirectWhatsApp()">
+  <h2>Redirecting to WhatsApp...</h2>
 </body>
-  </html>
+</html>
