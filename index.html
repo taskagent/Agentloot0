@@ -1,29 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect</title>
-    <script>
-        // List of random links
-        const randomLinks = [
-            "https://t.me/+AeVe2BoTijFjOTQ1", // Replace with your first link
-            "https://t.me/+AeVe2BoTijFjOTQ1", // Replace with your second link
-            "https://t.me/+AeVe2BoTijFjOTQ1"  // Replace with your third link
-        ];
+  <title>WhatsApp Redirect</title>
+  <script>
+    function redirectWhatsApp() {
+      // Aapke numbers ka array
+      var numbers = [
+        "916003668768",
+        "916377719915",
+        "917207550123",
+        "917254861488",
+        "917367867346",
+        "917438973286",
+        "919948173677",
+        "919973525123",
+        "919756622491",
+        "919786731270",
+        "919562943554",
+        "917079819573",
+        "918374389875",
+        "918606651891",
+        "918987708692",
+        "916000657517",
+        "916009115422",
+        "917087325644",
+        "917309049515",
+        "917506256790",
+        "919365908265",
+        "919366863218",
+        "919411701434",
+        "919416253745",
+        "919507542026",
+        "916003623415",
+        "918006975180",
+        "918120052953",
+        "919863156070",
+        "919243830032",
+        "919882686676",
+        "919562728964",
+        "919801743601",
+        "919676547499",
+        "919951655318",
+        "919542920586",
+        "917064378308",
+        "917075354732",
+        "919935355465",
+        "918129965345",
+        "916001827926",
+        "916009186146"
+      ];
 
-        // Function to select a random link and redirect
-        function randomRedirect() {
-            const randomIndex = Math.floor(Math.random() * randomLinks.length); // Randomly select an index
-            const selectedLink = randomLinks[randomIndex]; // Get the link based on the random index
-            window.location.href = selectedLink; // Redirect to the selected link
-        }
+      // Random number choose karo
+      var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
 
-        // Call the randomRedirect function on page load
-        window.onload = randomRedirect;
-    </script>
+      // Redirect to WhatsApp
+      window.location.href = "https://wa.me/" + randomNum;
+    }
+  </script>
 </head>
-<body>
-    <!-- Body is empty; it will redirect automatically on page load -->
+<body onload="redirectWhatsApp()">
+  <h2>Redirecting to WhatsApp...</h2>
+  <p>Agar automatic redirect nahi hota to 
+     <a id="whatsappLink" href="#">yaha click karein</a>.
+  </p>
+
+  <script>
+    // Fallback link set karna
+    var numbers = [
+      "916003668768",
+      "916377719915",
+      "917207550123",
+      "917254861488",
+      "917367867346",
+      "917438973286",
+      "919948173677",
+      "919973525123",
+      "919756622491",
+      "919786731270",
+      "919562943554",
+      "917079819573",
+      "918374389875",
+      "918606651891",
+      "918987708692",
+      "916000657517",
+      "916009115422",
+      "917087325644",
+      "917309049515",
+      "917506256790",
+      "919365908265",
+      "919366863218",
+      "919411701434",
+      "919416253745",
+      "919507542026",
+      "916003623415",
+      "918006975180",
+      "918120052953",
+      "919863156070",
+      "919243830032",
+      "919882686676",
+      "919562728964",
+      "919801743601",
+      "919676547499",
+      "919951655318",
+      "919542920586",
+      "917064378308",
+      "917075354732",
+      "919935355465",
+      "918129965345",
+      "916001827926",
+      "916009186146"
+    ];
+    var randomNum = numbers[Math.floor(Math.random() * numbers.length)];
+    document.getElementById("whatsappLink").href = "https://wa.me/" + randomNum;
+  </script>
 </body>
 </html>
