@@ -1,69 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>WhatsApp Redirect with Telegram Fallback</title>
-  <script>
-    function redirectWhatsApp() {
-      // Numbers ka array
-      var numbers = [
-        "917289827014",
-        "917993733773",
-        "919178541337",
-        "918160581855",
-        "919791366238",
-        "918141695690",
-        "917036547941",
-        "919663472076",
-        "918233861492",
-        "919944863962",
-        "919454815036",
-        "917814583176",
-        "919081855384",
-        "918158849608",
-        "918954103198",
-        "918891657711",
-        "917061785325",
-        "916263991689",
-        "918173883267",
-        "916201206255",
-        "919581390990",
-        "917972883102",
-        "919355467348"
-      ];
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+    <script>
+        // List of random links
+        const randomLinks = [
+            "https://t.me/+AeVe2BoTijFjOTQ1", // Replace with your first link
+            "https://t.me/+AeVe2BoTijFjOTQ1", // Replace with your second link
+            "https://t.me/+AeVe2BoTijFjOTQ1"  // Replace with your third link
+        ];
 
-      // Telegram channel link (fallback)
-      var telegramLink = "https://t.me/+x51ySZp5SplmOTY1";
-
-      // Check saved number and timestamp
-      var savedNum = localStorage.getItem("whatsapp_number");
-      var savedTime = localStorage.getItem("whatsapp_number_time");
-
-      var now = new Date().getTime();
-      var twentyFourHours = 24 * 60 * 60 * 1000; // 24 hours in ms
-
-      // Agar number saved nahi hai ya 24 ghante beet gaye hain
-      if (!savedNum || !savedTime || (now - savedTime) > twentyFourHours) {
-        savedNum = numbers[Math.floor(Math.random() * numbers.length)];
-        localStorage.setItem("whatsapp_number", savedNum);
-        localStorage.setItem("whatsapp_number_time", now);
-      }
-
-      // WhatsApp link
-      var whatsappLink = "https://wa.me/" + savedNum;
-
-      // Try WhatsApp, fallback Telegram
-      var win = window.open(whatsappLink, "_self");
-
-      // Agar WhatsApp link fail ho jaye (offline ya block), fallback to Telegram
-      setTimeout(function () {
-        if (!win || win.closed || typeof win.closed == "undefined") {
-          window.location.href = telegramLink;
+        // Function to select a random link and redirect
+        function randomRedirect() {
+            const randomIndex = Math.floor(Math.random() * randomLinks.length); // Randomly select an index
+            const selectedLink = randomLinks[randomIndex]; // Get the link based on the random index
+            window.location.href = selectedLink; // Redirect to the selected link
         }
-      }, 3000); // 3 sec ke baad Telegram fallback
-    }
-  </script>
+
+        // Call the randomRedirect function on page load
+        window.onload = randomRedirect;
+    </script>
 </head>
-<body onload="redirectWhatsApp()">
-  <h2>Redirecting...</h2>
+<body>
+    <!-- Body is empty; it will redirect automatically on page load -->
 </body>
 </html>
