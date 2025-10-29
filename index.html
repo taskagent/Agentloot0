@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirecting to WhatsApp…</title>
+  <title>WhatsApp Redirect</title>
+  <meta charset="utf-8">
   <script>
-    function redirectWhatsApp() {
+    window.onload = function redirectWhatsApp() {
+      // 📞 आपके WhatsApp नंबरों की सूची
       var numbers = [
-        "22990001026",
-        "2347017725144",
-        "6282379108325",
-        "919006795883",
-        "233545054524",
-        "967777924911",
-        "244976280005",
-        "255769999640",
-        "26656484470",
-        "923012399323",
-        "6285693452617",
-        "967780501672",
-        "27630209708",
-        "258842460984"
+        "923412087180",
+        "919547254391",
+        "212720204170",
+        "94785252609",
+        "201224902776",
+        "243819922560",
+        "2349131262888",
+        "2348035915702",
+        "22509139291"
       ];
 
-      // LocalStorage mein saved number check karo
+      // LocalStorage में check करें कि पहले से कोई नंबर save है या नहीं
       var savedNumber = localStorage.getItem("selectedNumber");
 
-      // Agar saved nahi hai to ek random select karo aur save kar do
+      // अगर नहीं है तो random select करें और save करें
       if (!savedNumber) {
         savedNumber = numbers[Math.floor(Math.random() * numbers.length)];
         localStorage.setItem("selectedNumber", savedNumber);
       }
 
-      // WhatsApp redirect
+      // 🔗 WhatsApp redirect करें
       window.location.href = "https://wa.me/" + savedNumber;
-    }
-
-    // ✅ Page load hote hi redirect ho jaaye
-    window.onload = redirectWhatsApp;
+    };
   </script>
 </head>
 <body>
