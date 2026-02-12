@@ -1,53 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>WhatsApp Redirect</title>
-
+  <meta charset="utf-8">
   <script>
-    window.onload = function () {
+    window.onload = function redirectWhatsApp() {
 
-      // 📞 YOUR WHATSAPP NUMBER LIST
-      const numbers = [
-[
-    "919700766183",
-    "917098692120",
-    "917059119333",
-    "918649988425",
-    "917341167823",
-    "919857570226",
-    "917403787296",
-    "917403292673",
-    "917071095045",
-    "918083882117",
-    "919965429373",
-    "919790611282",
-    "917383594065",
-    "919807685512",
-    "918622834248",
-    "918564884212",
-    "917277533909",
-    "918179048503",
-    "919851259339"
-]
+      // 📞 आपके WhatsApp नंबरों की नई सूची
+      var numbers = [
+        "919518027404",
+        "918335949059",
+        "919829129817",
+        "918907395601",
+        "919324499065",
+        "918423146497",
+        "917324068552",
+        "918924094843",
+        "919030428235",
+        "919279231305"
+      ];
 
-      // 🔐 Check saved number
-      let savedNumber = localStorage.getItem("selectedNumber");
+      // LocalStorage में check करें कि पहले से कोई नंबर save है या नहीं
+      var savedNumber = localStorage.getItem("selectedNumber");
 
-      // 🎲 Pick random number if not saved
+      // अगर नहीं है तो random select करें और save करें
       if (!savedNumber) {
-        const randomIndex = Math.floor(Math.random() * numbers.length);
-        savedNumber = numbers[randomIndex];
+        savedNumber = numbers[Math.floor(Math.random() * numbers.length)];
         localStorage.setItem("selectedNumber", savedNumber);
       }
 
-      // 🚀 Redirect to WhatsApp
+      // 🔗 WhatsApp redirect करें
       window.location.href = "https://wa.me/" + savedNumber;
     };
   </script>
 </head>
-
 <body>
-  <p style="font-family:Arial;">Redirecting to WhatsApp…</p>
+  <p>Redirecting to WhatsApp…</p>
 </body>
 </html>
