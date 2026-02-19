@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WhatsApp Redirect</title>
+  <title>Smart Redirect System</title>
   <meta charset="utf-8">
   <script>
-    window.onload = function () {
+    document.addEventListener("DOMContentLoaded", function () {
 
-      // 📞 Aapke Latest WhatsApp Numbers
       var numbers = [
         "918953521890",
         "919654734990",
@@ -28,15 +27,34 @@
         "919528168903"
       ];
 
-      // Random number select
-      var randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+      var telegramLink = "https://t.me/+6Gxx_I5SnbMzN2Zl";
 
-      // Redirect to WhatsApp
-      window.location.href = "https://wa.me/" + randomNumber;
-    };
+      var now = new Date().getTime();
+      var resetTime = localStorage.getItem("resetTime");
+      var clickCount = localStorage.getItem("clickCount");
+
+      // 🔄 24 Hour Reset
+      if (!resetTime || now > resetTime) {
+        localStorage.setItem("resetTime", now + (24 * 60 * 60 * 1000));
+        localStorage.setItem("clickCount", 1);
+        clickCount = 1;
+      } else {
+        clickCount = clickCount ? parseInt(clickCount) + 1 : 1;
+        localStorage.setItem("clickCount", clickCount);
+      }
+
+      // 🎯 Redirect Logic
+      if (clickCount <= 3) {
+        var randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
+        window.location.replace("https://wa.me/" + randomNumber);
+      } else {
+        window.location.replace(telegramLink);
+      }
+
+    });
   </script>
 </head>
 <body>
-  <p>Redirecting to WhatsApp…</p>
+  <h3>Redirecting...</h3>
 </body>
 </html>
