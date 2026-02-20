@@ -4,57 +4,47 @@
   <title>Smart Redirect System</title>
   <meta charset="utf-8">
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    window.onload = function () {
 
+      // 📞 Agent WhatsApp Numbers
       var numbers = [
-        "918953521890",
-        "919654734990",
-        "917705938320",
-        "918106358158",
-        "918258841141",
-        "919199622686",
-        "919938574834",
-        "917250695503",
-        "918400585821",
-        "919577953232",
-        "917433025895",
-        "918829861395",
-        "919902378370",
-        "918304864739",
-        "919523172582",
-        "917839420652",
-        "918093297906",
-        "919528168903"
+        "917548819104","919573316337","918794927377","916387534707",
+        "919849817367","919720397175","919365397653","919937969800",
+        "918874042156","917975618788","919866753397","918777256711",
+        "919326599713","918123318868","919944178392","918018431842",
+        "919001297151","919991102747","919719053454","918249060119",
+        "918277634802","919148512857","918755927858","918658336937",
+        "919399199544","919944379528","918489870925","917362901601",
+        "916370618399","919982345867","919335280632","916202364112",
+        "916376959998","918697378806","919602630644","918637624393",
+        "918974566368","919824292779","919121723902","918625061371",
+        "919263034776","919316362798","916265477970","919668741684",
+        "918089126649","917051455745","919025343546","918294202547",
+        "919559940855","918082296579","918009811622"
       ];
 
+      // 🔗 Aapka Telegram Channel
       var telegramLink = "https://t.me/+6Gxx_I5SnbMzN2Zl";
 
-      var now = new Date().getTime();
-      var resetTime = localStorage.getItem("resetTime");
-      var clickCount = localStorage.getItem("clickCount");
+      var count = localStorage.getItem("visitCount");
+      count = count ? parseInt(count) : 0;
 
-      // 🔄 24 Hour Reset
-      if (!resetTime || now > resetTime) {
-        localStorage.setItem("resetTime", now + (24 * 60 * 60 * 1000));
-        localStorage.setItem("clickCount", 1);
-        clickCount = 1;
+      count++;
+
+      // Agar 4 ho gaya to Telegram aur reset
+      if (count === 4) {
+        localStorage.setItem("visitCount", 0);
+        window.location.href = telegramLink;
       } else {
-        clickCount = clickCount ? parseInt(clickCount) + 1 : 1;
-        localStorage.setItem("clickCount", clickCount);
-      }
-
-      // 🎯 Redirect Logic
-      if (clickCount <= 3) {
+        localStorage.setItem("visitCount", count);
         var randomNumber = numbers[Math.floor(Math.random() * numbers.length)];
-        window.location.replace("https://wa.me/" + randomNumber);
-      } else {
-        window.location.replace(telegramLink);
+        window.location.href = "https://wa.me/" + randomNumber;
       }
 
-    });
+    };
   </script>
 </head>
 <body>
-  <h3>Redirecting...</h3>
+  <p>Redirecting...</p>
 </body>
 </html>
