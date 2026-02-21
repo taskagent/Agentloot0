@@ -15,11 +15,19 @@
     }
 
     .container {
-      padding: 40px 20px;
+      padding: 30px 15px;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 28px;
       margin-bottom: 10px;
     }
 
@@ -48,10 +56,23 @@
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     .btn:hover {
       background: #1ebc59;
+      transform: scale(1.05);
+    }
+
+    .contact-box {
+      margin-top: 40px;
+      background: white;
+      color: black;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     footer {
@@ -65,6 +86,12 @@
 <body>
 
   <div class="container">
+
+    <!-- ✅ Your Image -->
+    <img src="https://i.ibb.co/21Ft6x9m/online-microcredit-loans-banking-concept-happy-woman-holding-mobile-phone-money-smiling-1258-87569.jpg" 
+         class="hero-img" 
+         alt="Work From Home">
+
     <h1>Work From Home Opportunity</h1>
     <p class="highlight">Flexible Timing • Online Work • Training Provided</p>
 
@@ -78,10 +105,17 @@
       Join on WhatsApp
     </a>
 
+    <div class="contact-box">
+      <h3>Contact Us</h3>
+      <p>Email: support@yourcompany.com</p>
+      <p>WhatsApp Support Available</p>
+    </div>
+
     <footer>
       © 2026 Your Company Name. All rights reserved.
     </footer>
+
   </div>
 
 </body>
-</html>
+  </html>
