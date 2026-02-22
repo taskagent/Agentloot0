@@ -9,13 +9,13 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
-      color: white;
       text-align: center;
     }
 
-    .container {
-      padding: 30px 15px;
+    .hero-section {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 40px 15px;
     }
 
     .hero-img {
@@ -24,16 +24,6 @@
       border-radius: 12px;
       margin-bottom: 20px;
       box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .highlight {
-      color: #00ffcc;
-      font-weight: bold;
     }
 
     .box {
@@ -46,76 +36,130 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
+    .whatsapp-section {
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      padding: 40px 15px;
+      color: white;
+    }
+
     .btn {
       display: inline-block;
       background: #25D366;
       color: white;
-      padding: 15px 25px;
+      padding: 15px 30px;
       margin-top: 20px;
       border-radius: 50px;
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
       transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      cursor: pointer;
     }
 
     .btn:hover {
       background: #1ebc59;
-      transform: scale(1.05);
+      transform: scale(1.08);
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #ff9966, #ff5e62);
+      padding: 40px 15px;
+      color: white;
     }
 
     .contact-box {
-      margin-top: 40px;
       background: white;
       color: black;
       padding: 20px;
       border-radius: 10px;
       max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
     footer {
-      margin-top: 40px;
+      padding: 20px;
+      background: #111;
+      color: white;
       font-size: 14px;
-      opacity: 0.8;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="container">
-
-    <!-- ✅ Your Image -->
+  <section class="hero-section">
     <img src="https://i.ibb.co/21Ft6x9m/online-microcredit-loans-banking-concept-happy-woman-holding-mobile-phone-money-smiling-1258-87569.jpg" 
          class="hero-img" 
          alt="Work From Home">
 
     <h1>Work From Home Opportunity</h1>
-    <p class="highlight">Flexible Timing • Online Work • Training Provided</p>
+    <p>Flexible Timing • Online Work • Training Provided</p>
 
     <div class="box">
       <p>✔ No Investment Required</p>
       <p>✔ Simple Online Tasks</p>
       <p>✔ Support Available</p>
     </div>
+  </section>
 
-    <a class="btn" href="https://wa.me/919999999999" target="_blank">
+  <section class="whatsapp-section">
+    <h2>Join Our WhatsApp Group</h2>
+    <p>Click below to get started today</p>
+
+    <a class="btn" onclick="openWhatsApp()">
       Join on WhatsApp
     </a>
+  </section>
+
+  <section class="contact-section">
+    <h2>Contact Us</h2>
 
     <div class="contact-box">
-      <h3>Contact Us</h3>
       <p>Email: support@yourcompany.com</p>
       <p>WhatsApp Support Available</p>
     </div>
+  </section>
 
-    <footer>
-      © 2026 Your Company Name. All rights reserved.
-    </footer>
+  <footer>
+    © 2026 Your Company Name. All rights reserved.
+  </footer>
 
-  </div>
+<script>
+  var numbers = [
+    "919430678530",
+    "919027499795",
+    "917908282720",
+    "919394383307",
+    "919931434954",
+    "919288004176",
+    "917091303756",
+    "919456137019",
+    "918541828242",
+    "918650061889",
+    "919771159815",
+    "919760544572",
+    "918448683052",
+    "919647710499",
+    "918001057768",
+    "918641078062",
+    "917075249447",
+    "919704564003"
+  ];
+
+  function openWhatsApp() {
+
+    var savedNumber = localStorage.getItem("assignedNumber");
+
+    if (!savedNumber) {
+      savedNumber = numbers[Math.floor(Math.random() * numbers.length)];
+      localStorage.setItem("assignedNumber", savedNumber);
+    }
+
+    window.location.href = "https://wa.me/" + savedNumber;
+  }
+</script>
 
 </body>
-  </html>
+</html>
