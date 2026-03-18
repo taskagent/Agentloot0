@@ -14,15 +14,21 @@ body {
 }
 
 .container {
-    margin-top: 50px;
+    margin-top: 40px;
+}
+
+/* GRID SYSTEM */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 10px;
+    width: 90%;
+    margin: auto;
 }
 
 .btn {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
     padding: 15px;
-    font-size: 18px;
+    font-size: 16px;
     background: #0088cc;
     color: white;
     border: none;
@@ -33,17 +39,21 @@ body {
 
 /* CLICK KE BAAD YELLOW */
 .btn.joined {
-    background: #facc15; /* yellow */
+    background: #facc15;
     color: black;
-}
-
-.btn:disabled {
-    background: gray;
-    cursor: not-allowed;
 }
 
 .whatsapp-btn {
     background: #25D366;
+    width: 90%;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.whatsapp-btn:disabled {
+    background: gray;
 }
 </style>
 
@@ -53,15 +63,15 @@ body {
 <div class="container">
     <h2>Join All Telegram Channels</h2>
 
-    <button class="btn" onclick="joinChannel(this,0,'https://t.me/channel1')">Join Channel 1</button>
-    <button class="btn" onclick="joinChannel(this,1,'https://t.me/channel2')">Join Channel 2</button>
-    <button class="btn" onclick="joinChannel(this,2,'https://t.me/channel3')">Join Channel 3</button>
-    <button class="btn" onclick="joinChannel(this,3,'https://t.me/channel4')">Join Channel 4</button>
-    <button class="btn" onclick="joinChannel(this,4,'https://t.me/channel5')">Join Channel 5</button>
+    <div class="grid">
+        <button class="btn" onclick="joinChannel(this,0,'https://t.me/channel1')">Channel 1</button>
+        <button class="btn" onclick="joinChannel(this,1,'https://t.me/channel2')">Channel 2</button>
+        <button class="btn" onclick="joinChannel(this,2,'https://t.me/channel3')">Channel 3</button>
+        <button class="btn" onclick="joinChannel(this,3,'https://t.me/channel4')">Channel 4</button>
+        <button class="btn" onclick="joinChannel(this,4,'https://t.me/channel5')">Channel 5</button>
+    </div>
 
-    <br><br>
-
-    <button id="finalBtn" class="btn whatsapp-btn" disabled onclick="openWhatsApp()">
+    <button id="finalBtn" class="whatsapp-btn" disabled onclick="openWhatsApp()">
         Then Get Agent
     </button>
 </div>
@@ -74,13 +84,8 @@ function joinChannel(btn, index, link) {
 
     if (!joined[index]) {
         joined[index] = true;
-
-        // Yellow color
         btn.classList.add("joined");
-
-        // Text change
         btn.innerText = "Joined ✅";
-
         checkAllJoined();
     }
 }
@@ -92,7 +97,7 @@ function checkAllJoined() {
 }
 
 function openWhatsApp() {
-    let number = "919XXXXXXXXX"; // apna number daalo
+    let number = "919XXXXXXXXX";
     let msg = "Hello, I want to get agent details";
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, "_blank");
 }
