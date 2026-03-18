@@ -28,6 +28,11 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn.joined {
+    background: #22c55e; /* green */
 }
 
 .btn:disabled {
@@ -46,11 +51,11 @@ body {
 <div class="container">
     <h2>Join All Telegram Channels</h2>
 
-    <button class="btn" onclick="joinChannel(0, 'https://t.me/channel1')">Join Channel 1</button>
-    <button class="btn" onclick="joinChannel(1, 'https://t.me/channel2')">Join Channel 2</button>
-    <button class="btn" onclick="joinChannel(2, 'https://t.me/channel3')">Join Channel 3</button>
-    <button class="btn" onclick="joinChannel(3, 'https://t.me/channel4')">Join Channel 4</button>
-    <button class="btn" onclick="joinChannel(4, 'https://t.me/channel5')">Join Channel 5</button>
+    <button class="btn" onclick="joinChannel(this,0,'https://t.me/channel1')">Join Channel 1</button>
+    <button class="btn" onclick="joinChannel(this,1,'https://t.me/channel2')">Join Channel 2</button>
+    <button class="btn" onclick="joinChannel(this,2,'https://t.me/channel3')">Join Channel 3</button>
+    <button class="btn" onclick="joinChannel(this,3,'https://t.me/channel4')">Join Channel 4</button>
+    <button class="btn" onclick="joinChannel(this,4,'https://t.me/channel5')">Join Channel 5</button>
 
     <br><br>
 
@@ -62,10 +67,20 @@ body {
 <script>
 let joined = [false, false, false, false, false];
 
-function joinChannel(index, link) {
+function joinChannel(btn, index, link) {
     window.open(link, "_blank");
-    joined[index] = true;
-    checkAllJoined();
+
+    if (!joined[index]) {
+        joined[index] = true;
+
+        // button color change
+        btn.classList.add("joined");
+
+        // text change
+        btn.innerText = "Joined ✅";
+
+        checkAllJoined();
+    }
 }
 
 function checkAllJoined() {
@@ -75,7 +90,7 @@ function checkAllJoined() {
 }
 
 function openWhatsApp() {
-    let number = "919XXXXXXXXX"; // apna number daalo
+    let number = "919XXXXXXXXX"; // apna number
     let msg = "Hello, I want to get agent details";
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, "_blank");
 }
