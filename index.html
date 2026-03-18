@@ -31,8 +31,10 @@ body {
     transition: 0.3s;
 }
 
+/* CLICK KE BAAD YELLOW */
 .btn.joined {
-    background: #22c55e; /* green */
+    background: #facc15; /* yellow */
+    color: black;
 }
 
 .btn:disabled {
@@ -73,10 +75,10 @@ function joinChannel(btn, index, link) {
     if (!joined[index]) {
         joined[index] = true;
 
-        // button color change
+        // Yellow color
         btn.classList.add("joined");
 
-        // text change
+        // Text change
         btn.innerText = "Joined ✅";
 
         checkAllJoined();
@@ -90,7 +92,7 @@ function checkAllJoined() {
 }
 
 function openWhatsApp() {
-    let number = "919XXXXXXXXX"; // apna number
+    let number = "919XXXXXXXXX"; // apna number daalo
     let msg = "Hello, I want to get agent details";
     window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`, "_blank");
 }
