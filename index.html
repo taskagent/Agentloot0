@@ -17,10 +17,10 @@ body {
     margin-top: 40px;
 }
 
-/* GRID SYSTEM */
+/* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     width: 90%;
     margin: auto;
@@ -37,7 +37,6 @@ body {
     transition: 0.3s;
 }
 
-/* CLICK KE BAAD YELLOW */
 .btn.joined {
     background: #facc15;
     color: black;
@@ -64,20 +63,48 @@ body {
     <h2>Join All Telegram Channels</h2>
 
     <div class="grid">
-        <button class="btn" onclick="joinChannel(this,0,'https://t.me/+IN25AiVSQFBhN2Y9')">Channel 1</button>
-        <button class="btn" onclick="joinChannel(this,1,'https://t.me/+HbLCSVITS4A3MDc1')">Channel 2</button>
-        <button class="btn" onclick="joinChannel(this,2,'https://t.me/eanrningopay')">Channel 3</button>
-        <button class="btn" onclick="joinChannel(this,3,'https://t.me/EarningTipsTrick01')">Channel 4</button>
-        <button class="btn" onclick="joinChannel(this,4,'https://t.me/EARNINGTRICKS000014')">Channel 5</button>
+        <button class="btn" onclick="joinChannel(this,0,'https://t.me/+lgJkp4F26T4wMjc1')">Channel 1</button>
+        <button class="btn" onclick="joinChannel(this,1,'https://t.me/+IN25AiVSQFBhN2Y9')">Channel 2</button>
+        <button class="btn" onclick="joinChannel(this,2,'https://t.me/+_wV0LRyCD5w4Mzg1')">Channel 3</button>
     </div>
 
     <button id="finalBtn" class="whatsapp-btn" disabled onclick="openWhatsApp()">
-        Then Get Agent
+        Click here Get Agent🔥✅
     </button>
 </div>
 
 <script>
-let joined = [false, false, false, false, false];
+
+// 🔥 Tumhare numbers
+let numbers = [
+"918125638762","917753861153","918382067716","918953829893","916002725051",
+"916002710843","916002704935","919101565271","917379593026","917975523041",
+"918019937974","918367407690","918791504918","919866383576","919063945928",
+"919553715730","919214797913","919304808401","919863731330","916396746674",
+"919259026252","917795422894","918294605924","919008318992","919591974166",
+"917372924277","919309282139","917425906681","919000816948","918099854103",
+"916002714150","918863047519","919053545302","917396793350","919913665890",
+"919632712647","918583948355","916002702374","919606678942","919010828743",
+"919929340836","916002718250","918810410379","919949984425","916002319152",
+"917659017550","918827424942","918008931193","916002715015","919550996321",
+"919395029445","919063855338","918257925187","919774876123","917394943010"
+];
+
+// 🔥 Only 3 channels
+let joined = [false, false, false];
+
+// ✅ Random + same user fix
+function getUserNumber() {
+    let saved = localStorage.getItem("userNumber");
+
+    if (saved) {
+        return saved;
+    } else {
+        let random = numbers[Math.floor(Math.random() * numbers.length)];
+        localStorage.setItem("userNumber", random);
+        return random;
+    }
+}
 
 function joinChannel(btn, index, link) {
     window.open(link, "_blank");
@@ -92,4 +119,16 @@ function joinChannel(btn, index, link) {
 
 function checkAllJoined() {
     if (joined.every(v => v === true)) {
-        document
+        document.getElementById("finalBtn").disabled = false;
+    }
+}
+
+function openWhatsApp() {
+    let number = getUserNumber();
+    window.open("https://wa.me/" + number, "_blank");
+}
+
+</script>
+
+</body>
+</html>
