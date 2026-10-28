@@ -1,462 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#ffffff">
-<title>YONO RUMMY | Premium App Store</title>
+<meta name="theme-color" content="#3b0764">
+<title>Diwali Special Reward Offer</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{box-sizing:border-box}
 body{
- font-family:Arial,sans-serif;
- background:#fff;
- color:#172235;
+  margin:0;min-height:100vh;padding:20px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(145deg,#240046,#5a189a,#9d0208);
+  color:white;
 }
-
-header{
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:15px 5%;
- background:#fff;
- box-shadow:0 3px 15px #00000010;
- position:sticky;
- top:0;
- z-index:10;
+.card{
+  width:100%;max-width:410px;padding:25px 20px;
+  text-align:center;border-radius:24px;
+  background:#1b1029;border:1px solid #ffc857;
+  box-shadow:0 0 30px #ff9e0050;
 }
-
-.logo{
- display:flex;
- align-items:center;
- gap:10px;
- font-size:23px;
- font-weight:900;
- color:#087548;
+.lamp{font-size:44px}
+h1{color:#ffd166;font-size:27px;margin:10px 0}
+.sub{color:#f9e7bd;line-height:1.6;font-size:14px}
+.offer{
+  margin:20px 0;padding:20px 10px;border-radius:17px;
+  background:linear-gradient(135deg,#ffd166,#ff8c00);
+  color:#571600;
 }
-
-.logo img{
- width:45px;
- height:45px;
- object-fit:cover;
- border-radius:10px;
+.offer small{font-weight:bold;letter-spacing:2px}
+.amount{font-size:38px;font-weight:900;margin:8px 0}
+.btn{
+  display:block;width:100%;padding:15px 10px;
+  margin-top:13px;border-radius:12px;font-size:15px;
+  font-weight:bold;text-decoration:none;border:0;cursor:pointer;
 }
-
-.logo span{color:#d9a400}
-
-.menu{
- text-decoration:none;
- color:#087548;
- font-weight:bold;
-}
-
-nav{
- display:flex;
- gap:22px;
- padding:16px 5%;
- overflow-x:auto;
- background:#f7fbf8;
- border-bottom:1px solid #e5eee8;
-}
-
-nav a{
- color:#344054;
- text-decoration:none;
- white-space:nowrap;
- font-size:14px;
- font-weight:bold;
-}
-
-.hero{
- width:92%;
- margin:24px auto;
- padding:35px 24px;
- border-radius:22px;
- background:linear-gradient(135deg,#e8fff2,#fff8dc,#fff);
- border:1px solid #e0eee4;
-}
-
-.hero small{
- color:#07864f;
- font-weight:bold;
- letter-spacing:2px;
-}
-
-.hero h1{
- font-size:clamp(32px,6vw,50px);
- margin:18px 0;
- line-height:1.15;
-}
-
-.hero h1 span{color:#c79600}
-
-.hero p{
- color:#596579;
- line-height:1.8;
-}
-
-.hero-btn{
- display:inline-block;
- margin-top:22px;
- padding:14px 22px;
- border-radius:10px;
- background:linear-gradient(90deg,#ffe888,#ffc62e);
- color:#222;
- text-decoration:none;
- font-weight:bold;
-}
-
-.container{
- width:92%;
- max-width:1200px;
- margin:35px auto;
-}
-
-h2{font-size:25px;margin-bottom:10px}
-
-.subtitle{
- color:#697586;
- font-size:14px;
- margin-bottom:20px;
-}
-
-.search{
- width:100%;
- padding:15px;
- border:1px solid #dce5df;
- border-radius:12px;
- font-size:16px;
- margin-bottom:15px;
- outline:none;
-}
-
-.search:focus{border-color:#0b9b62}
-
-.filters{
- display:flex;
- gap:10px;
- overflow-x:auto;
- margin-bottom:22px;
-}
-
-.filter{
- padding:11px 18px;
- border-radius:25px;
- border:1px solid #e0e7e2;
- background:#f5f7f6;
- cursor:pointer;
- white-space:nowrap;
-}
-
-.filter.active{
- background:#07864f;
- color:white;
-}
-
-.app-grid{
- display:grid;
- grid-template-columns:repeat(3,minmax(0,1fr));
- gap:18px;
-}
-
-.app-card{
- padding:18px;
- border:1px solid #e4ebe6;
- border-radius:18px;
- background:#fff;
- box-shadow:0 5px 20px #183b2410;
- transition:.2s;
-}
-
-.app-card:hover{
- transform:translateY(-4px);
- box-shadow:0 10px 25px #183b2420;
-}
-
-.app-top{
- display:flex;
- align-items:center;
- gap:12px;
-}
-
-.app-icon{
- width:70px;
- height:70px;
- flex-shrink:0;
- border-radius:16px;
- object-fit:cover;
-}
-
-.app-name{
- font-size:17px;
- font-weight:bold;
- overflow-wrap:anywhere;
-}
-
-.badge{
- display:inline-block;
- margin-top:7px;
- color:#07864f;
- font-size:10px;
- font-weight:bold;
-}
-
-.rating{
- color:#d6a300;
- margin:16px 0 10px;
-}
-
-.description{
- font-size:13px;
- color:#697586;
- line-height:1.6;
-}
-
-.download{
- display:block;
- text-align:center;
- margin-top:17px;
- padding:13px 7px;
- border-radius:10px;
- background:linear-gradient(90deg,#0ba966,#087744);
- color:white;
- text-decoration:none;
- font-weight:bold;
- box-shadow:0 4px 12px #07864f25;
-}
-
-.download:hover{filter:brightness(1.08)}
-
-.notice{
- margin-top:25px;
- padding:17px;
- background:#f5fbf6;
- border:1px solid #e0eee4;
- border-radius:12px;
- font-size:13px;
- color:#526174;
- line-height:1.8;
-}
-
-footer{
- margin-top:45px;
- padding:30px 15px;
- text-align:center;
- background:#f5faf6;
- color:#697586;
- line-height:2;
-}
-
-footer strong{color:#087548;font-size:20px}
-
-@media(max-width:700px){
- .app-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
- .app-card{padding:12px}
- .app-top{align-items:flex-start;flex-direction:column}
- .app-icon{width:65px;height:65px}
- .app-name{font-size:16px}
-}
-
-@media(max-width:360px){
- .app-grid{grid-template-columns:1fr}
- .app-top{flex-direction:row;align-items:center}
-}
+.join{background:#fff0d0;color:#6b2500}
+.join.done{background:#dcfce7;color:#166534}
+#claim{background:#16a34a;color:white;margin-top:22px}
+#claim:disabled{background:#555;color:#ccc;cursor:not-allowed}
+#status{font-size:13px;color:#ffe7b0;line-height:1.5}
+.note{font-size:11px;color:#d8cbe8;margin-top:18px;line-height:1.6}
 </style>
 </head>
 
 <body>
+<main class="card">
 
-<header>
- <div class="logo">
-  <img src="logo.jpg" alt="YONO RUMMY">
-  <div>YONO <span>RUMMY</span></div>
- </div>
- <a href="#apps" class="menu">☰ MENU</a>
-</header>
+  <div class="lamp">🪔✨🎆</div>
+  <h1>DIWALI SPECIAL OFFER</h1>
 
-<nav>
- <a href="#">⌂ Home</a>
- <a href="#apps">All Apps</a>
- <a href="#about">About</a>
- <a href="#safety">Safety</a>
- <a href="#contact">Contact</a>
-</nav>
+  <p class="sub">
+    Happy Diwali! 🪔<br>
+    Celebrate the festival of lights with our special reward offer.
+  </p>
 
-<section class="hero">
- <small>WELCOME TO YONO RUMMY</small>
- <h1>Discover Amazing<br><span>Apps & Games</span></h1>
- <p>Explore our featured app collection with a clean,
- premium and mobile-friendly experience.</p>
- <a href="#apps" class="hero-btn">EXPLORE APPS →</a>
-</section>
+  <section class="offer">
+    <small>FESTIVE REWARD</small>
+    <div class="amount">₹10 – ₹30</div>
+    <strong>Special Diwali Reward</strong>
+    <p style="font-size:13px">
+      Open all three Telegram channel links to continue.
+    </p>
+  </section>
 
-<main class="container" id="apps">
+  <a class="btn join" id="ch1"
+     href="https://t.me/+B9BFjfyYC91kMjRl"
+     target="_blank" rel="noopener noreferrer">
+     ✈️ Join Telegram Channel 1
+  </a>
 
- <h2>🔥 Featured Apps</h2>
- <p class="subtitle">Find your favourite app below</p>
+  <a class="btn join" id="ch2"
+     href="https://t.me/+0UTAcNeIQw9mZWQ9"
+     target="_blank" rel="noopener noreferrer">
+     ✈️ Join Telegram Channel 2
+  </a>
 
- <input
-  type="search"
-  id="search"
-  class="search"
-  placeholder="🔍 Search apps here..."
-  aria-label="Search apps">
+  <a class="btn join" id="ch3"
+     href="https://t.me/Official_Silentop"
+     target="_blank" rel="noopener noreferrer">
+     ✈️ Join Telegram Channel 3
+  </a>
 
- <div class="filters">
-  <button class="filter active" data-category="all">All Apps</button>
-  <button class="filter" data-category="game">Games</button>
-  <button class="filter" data-category="utility">Utilities</button>
-  <button class="filter" data-category="popular">Popular</button>
- </div>
+  <p id="status" aria-live="polite">
+    Open all three channel links to unlock the Claim button.
+  </p>
 
- <div class="app-grid">
+  <button class="btn" id="claim" disabled>
+    🔒 CLAIM DIWALI REWARD
+  </button>
 
-  <article class="app-card" data-name="Money Rummy" data-category="game popular">
-   <div class="app-top">
-    <img class="app-icon" src="logo.jpg" alt="YONO RUMMY logo">
-    <div>
-     <div class="app-name">Money Rummy</div>
-     <span class="badge">FEATURED APP</span>
-    </div>
-   </div>
-   <div class="rating">★★★★☆</div>
-   <p class="description">Explore app details and information.</p>
-   <a href="https://taskagent.github.io/Vish/" target="_blank" rel="noopener noreferrer" class="download">↗ OPEN APP</a>
-  </article>
-
-  <article class="app-card" data-name="Boss Rummy" data-category="game popular">
-   <div class="app-top">
-    <img class="app-icon" src="logo.jpg" alt="YONO RUMMY logo">
-    <div>
-     <div class="app-name">Boss Rummy</div>
-     <span class="badge">POPULAR</span>
-    </div>
-   </div>
-   <div class="rating">★★★★★</div>
-   <p class="description">Explore app details and information.</p>
-   <a href="https://taskagent.github.io/Vish/" target="_blank" rel="noopener noreferrer" class="download">↗ OPEN APP</a>
-  </article>
-
-  <article class="app-card" data-name="Spin Crush" data-category="game">
-   <div class="app-top">
-    <img class="app-icon" src="logo.jpg" alt="YONO RUMMY logo">
-    <div>
-     <div class="app-name">Spin Crush</div>
-     <span class="badge">FEATURED</span>
-    </div>
-   </div>
-   <div class="rating">★★★★☆</div>
-   <p class="description">Explore app details and information.</p>
-   <a href="https://taskagent.github.io/Vish/" target="_blank" rel="noopener noreferrer" class="download">↗ OPEN APP</a>
-  </article>
-
-  <article class="app-card" data-name="Diwa OK" data-category="game">
-   <div class="app-top">
-    <img class="app-icon" src="logo.jpg" alt="YONO RUMMY logo">
-    <div>
-     <div class="app-name">Diwa OK</div>
-     <span class="badge">DISCOVER</span>
-    </div>
-   </div>
-   <div class="rating">★★★★☆</div>
-   <p class="description">Explore app details and information.</p>
-   <a href="https://taskagent.github.io/Vish/" target="_blank" rel="noopener noreferrer" class="download">↗ OPEN APP</a>
-  </article>
-
-  <article class="app-card" data-name="Jeet Spin" data-category="game">
-   <div class="app-top">
-    <img class="app-icon" src="logo.jpg" alt="YONO RUMMY logo">
-    <div>
-     <div class="app-name">Jeet Spin</div>
-     <span class="badge">DISCOVER</span>
-    </div>
-   </div>
-   <div class="rating">★★★★☆</div>
-   <p class="description">Explore app details and information.</p>
-   <a href="https://taskagent.github.io/Vish/" target="_blank" rel="noopener noreferrer" class="download">↗ OPEN APP</a>
-  </article>
-
-  <article class="app-card" data-name="App Toolkit" data-category="utility popular">
-   <div class="app-top">
-    <img class="app-icon" src="logo.jpg" alt="YONO RUMMY logo">
-    <div>
-     <div class="app-name">App Toolkit</div>
-     <span class="badge">UTILITY</span>
-    </div>
-   </div>
-   <div class="rating">★★★★★</div>
-   <p class="description">Explore app details and information.</p>
-   <a href="https://taskagent.github.io/Vish/" target="_blank" rel="noopener noreferrer" class="download">↗ OPEN APP</a>
-  </article>
-
- </div>
-
- <div class="notice" id="safety">
-  <strong>Safety Notice:</strong>
-  Verify apps and destination links before publishing.
-  Games involving real-money deposits or prizes can involve
-  financial risks and may be age-restricted. Check applicable
-  laws and the provider's terms.
- </div>
+  <p class="note">
+    Reward eligibility and availability depend on the offer terms.
+    Clicking the channel buttons does not verify membership or
+    guarantee a reward. Please review the destination website's terms.
+  </p>
 
 </main>
 
-<section class="container" id="about">
- <h2>About Us</h2>
- <p class="subtitle">
-  YONO RUMMY is an app listing website with a mobile-friendly design.
- </p>
-</section>
-
-<section class="container" id="contact">
- <h2>Contact Us</h2>
- <p class="subtitle">Add your official support email here.</p>
-</section>
-
-<footer>
- <strong>YONO RUMMY</strong>
- <p>Discover More. Explore Smarter.</p>
- <p>© <span id="year"></span> All rights reserved.</p>
-</footer>
-
 <script>
-const searchInput = document.getElementById("search");
-const cards = [...document.querySelectorAll(".app-card")];
-const filters = [...document.querySelectorAll(".filter")];
+const channels = [
+  document.getElementById("ch1"),
+  document.getElementById("ch2"),
+  document.getElementById("ch3")
+];
 
-let selectedCategory = "all";
+const claim = document.getElementById("claim");
+const status = document.getElementById("status");
 
-function filterApps() {
- const query = searchInput.value.toLowerCase().trim();
+const CLAIM_LINK =
+  "https://zingoy.cuelinks.com/?ref=7TYM8VG";
 
- cards.forEach(card => {
-  const name = (card.dataset.name + " " + card.innerText).toLowerCase();
-  const categories = card.dataset.category.split(" ");
+const opened = [false, false, false];
 
-  const matchesSearch = name.includes(query);
-  const matchesCategory =
-   selectedCategory === "all" ||
-   categories.includes(selectedCategory);
+function updateStatus() {
+  const allOpened = opened.every(Boolean);
+  claim.disabled = !allOpened;
 
-  card.style.display =
-   matchesSearch && matchesCategory ? "" : "none";
- });
+  if (allOpened) {
+    claim.textContent = "🎁 CLAIM DIWALI REWARD";
+    status.textContent =
+      "All three channel links clicked! You can continue.";
+  } else {
+    const remaining = opened.filter(x => !x).length;
+    status.textContent =
+      `Open ${remaining} more channel link(s) to unlock Claim.`;
+  }
 }
 
-searchInput.addEventListener("input", filterApps);
-
-filters.forEach(button => {
- button.addEventListener("click", () => {
-  filters.forEach(item => item.classList.remove("active"));
-  button.classList.add("active");
-  selectedCategory = button.dataset.category;
-  filterApps();
- });
+channels.forEach((channel, index) => {
+  channel.addEventListener("click", function() {
+    opened[index] = true;
+    channel.classList.add("done");
+    channel.textContent =
+      `✓ Channel ${index + 1} Link Opened`;
+    updateStatus();
+  });
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+claim.addEventListener("click", function() {
+  if (opened.every(Boolean)) {
+    window.location.href = CLAIM_LINK;
+  }
+});
 </script>
-
 </body>
 </html>
